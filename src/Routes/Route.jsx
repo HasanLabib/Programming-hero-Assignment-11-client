@@ -12,6 +12,7 @@ import AssignDecorator from "../Components/Dashboard/AssignDecorator";
 import Bookings from "../Components/Dashboard/Bookings";
 import ManageServices from "../Components/Dashboard/ManageServices";
 import ManageDecorators from "../Components/Dashboard/ManageDecorators";
+import SignUp from "../Pages/SignUp/SignUp";
 
 export const route = () =>
   createBrowserRouter([
@@ -23,6 +24,10 @@ export const route = () =>
           index: true,
           Component: Home,
         },
+        {
+          path: "/signup",
+          Component: SignUp,
+        },
       ],
     },
     {
@@ -30,7 +35,7 @@ export const route = () =>
       element: <DashboardLayout />,
       children: [
         {
-          index: true,
+          path: "dashboard",
           element: <DashboardContent />,
         },
         {
