@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router";
-import DashboardAside from "../Components/Dashboard/DashboardAside";
+import DashboardAside from "../Components/AdminDashboard/DashboardAside";
+
 
 const DashboardLayout = () => {
   return (
