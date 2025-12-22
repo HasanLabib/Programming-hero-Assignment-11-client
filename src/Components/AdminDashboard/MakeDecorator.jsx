@@ -8,7 +8,9 @@ const ManageUsers = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:4000/admin/users");
+      const response = await axios.get(
+        "https://programming-hero-assignment-11-serv.vercel.app/admin/users"
+      );
       setUsers(response.data);
       console.log("Fetched users:", response.data);
     } catch (err) {
@@ -21,9 +23,11 @@ const ManageUsers = () => {
 
   const makeDecorator = async (email) => {
     try {
-      await axios.patch(`http://localhost:4000/admin/make-decorator/${email}`);
+      await axios.patch(
+        `https://programming-hero-assignment-11-serv.vercel.app/admin/make-decorator/${email}`
+      );
       alert(`${email} is now a decorator`);
-      fetchUsers(); 
+      fetchUsers();
     } catch (err) {
       console.error("Failed to make decorator:", err);
     }

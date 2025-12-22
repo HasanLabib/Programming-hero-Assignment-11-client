@@ -56,7 +56,7 @@ const Login = () => {
           photoURL: loggedUser.photoURL,
         });
         axios
-          .post("http://localhost:4000/googleUsers", {
+          .post("https://programming-hero-assignment-11-serv.vercel.app/googleUsers", {
             name: loggedUser.displayName,
             email: loggedUser.email,
             photoURL: loggedUser.photoURL,

@@ -42,7 +42,7 @@ const SignUp = () => {
         },
       }
     );
-    
+
     const photoUrl = res.data.data.display_url;
     console.log(photoUrl);
 
@@ -78,12 +78,15 @@ const SignUp = () => {
             .then((res) => {
               setUser({ ...user, displayName: name, photoURL: photoUrl });
               axios
-                .post("http://localhost:4000/users", {
-                  name: name,
-                  email: email,
-                  password: password,
-                  photoURL: photoUrl,
-                })
+                .post(
+                  "https://programming-hero-assignment-11-serv.vercel.app/users",
+                  {
+                    name: name,
+                    email: email,
+                    password: password,
+                    photoURL: photoUrl,
+                  }
+                )
                 .then((response) => {
                   console.log("User data saved:", response.data);
                 })
@@ -146,11 +149,14 @@ const SignUp = () => {
           photoURL: loggedUser.photoURL,
         });
         axios
-          .post("http://localhost:4000/googleUsers", {
-            name: loggedUser.displayName,
-            email: loggedUser.email,
-            photoURL: loggedUser.photoURL,
-          })
+          .post(
+            "https://programming-hero-assignment-11-serv.vercel.app/googleUsers",
+            {
+              name: loggedUser.displayName,
+              email: loggedUser.email,
+              photoURL: loggedUser.photoURL,
+            }
+          )
           .then((response) => {
             console.log("User data saved:", response.data);
           })

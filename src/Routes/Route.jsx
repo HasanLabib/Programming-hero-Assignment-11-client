@@ -24,6 +24,8 @@ import ManageBooking from "../Components/AdminDashboard/ManageBooking";
 import Analytics from "../Components/AdminDashboard/Analytics";
 import MyProject from "../Components/AdminDashboard/MyProject";
 import DecoratorProjectsStatus from "../Components/AdminDashboard/DecoratorProjectsStatus";
+import DecoratorEarning from "../Components/AdminDashboard/DecoratorEarning";
+import PrivateRouteProvide from "../Provider/PrivateRouteProvider/PrivateRouteProvide";
 
 export const route = () =>
   createBrowserRouter([
@@ -59,7 +61,11 @@ export const route = () =>
     },
     {
       path: "dashboard",
-      element: <DashboardLayout />,
+      element: (
+        <PrivateRouteProvide>
+          <DashboardLayout />
+        </PrivateRouteProvide>
+      ),
       children: [
         {
           path: "services",
@@ -113,6 +119,10 @@ export const route = () =>
         {
           path: "update-project-status",
           element: <DecoratorProjectsStatus />,
+        },
+        {
+          path: "earnings-summary",
+          element: <DecoratorEarning />,
         },
       ],
     },
