@@ -8,6 +8,7 @@ import Service from "../Components/AdminDashboard/Service/Service";
 import AddService from "../Components/AdminDashboard/Service/AddService";
 import EditService from "../Components/AdminDashboard/Service/EditService";
 import Login from "../Pages/Login/Login";
+import Profile from "../Pages/Profile";
 
 export const route = () =>
   createBrowserRouter([
@@ -26,7 +27,7 @@ export const route = () =>
         {
           path: "/login",
           Component: Login,
-        }
+        },
       ],
     },
     {
@@ -38,13 +39,17 @@ export const route = () =>
           element: <Service />,
         },
         {
+          path: "profile",
+          element: <Profile />,
+        },
+        {
           path: "services/add",
           element: <AddService />,
         },
         {
           path: "services/edit/:id",
           element: <EditService />,
-        }
+        },
       ],
     },
   ]);

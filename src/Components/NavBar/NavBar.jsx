@@ -114,11 +114,7 @@ const NavBar = () => {
                     <li>
                       <button className="btn">{user.displayName}</button>
                     </li>
-                    <li>
-                      <NavLink to={`/profile`} className="btn">
-                        Profile
-                      </NavLink>
-                    </li>
+
                     <li>
                       <NavLink to={`/dashboard`} className="btn">
                         Dashboard

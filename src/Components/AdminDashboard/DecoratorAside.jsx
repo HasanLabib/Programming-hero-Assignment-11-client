@@ -10,6 +10,16 @@ const DecoratorAside = ({ navItemClass }) => {
 
       <nav className="p-4 space-y-6">
         <div>
+          <p className="mb-2 text-xs uppercase text-gray-400">Account</p>
+          <ul className="space-y-1">
+            <li>
+              <NavLink to="profile" className={navItemClass}>
+                My Profile
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        <div>
           <p className="mb-2 text-xs uppercase text-gray-400">Work</p>
           <ul className="space-y-1">
             <li>

@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router";
 
-const AdminAside = ({navItemClass}) => {
+const AdminAside = ({ navItemClass }) => {
   return (
     <aside className="w-64 min-h-screen bg-gray-900 border-r border-gray-800">
       <div className="p-4 text-xl font-bold text-white border-b border-gray-800">
@@ -9,6 +9,16 @@ const AdminAside = ({navItemClass}) => {
       </div>
 
       <nav className="p-4 space-y-6">
+        <div>
+          <p className="mb-2 text-xs uppercase text-gray-400">Account</p>
+          <ul className="space-y-1">
+            <li>
+              <NavLink to="/profile" className={navItemClass}>
+                My Profile
+              </NavLink>
+            </li>
+          </ul>
+        </div>
         <div>
           <p className="mb-2 text-xs uppercase text-gray-400">Management</p>
           <ul className="space-y-1">
