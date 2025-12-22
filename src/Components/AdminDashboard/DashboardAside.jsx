@@ -19,12 +19,13 @@ const DashboardAside = () => {
   const [loading, setLoading] = useState(true);
   const axiosSecure = useAxiosSecure();
   useEffect(() => {
+    if (!user?.email) return;
     const fetchUserRole = async () => {
       try {
         setLoading(true);
         const userRes = await axiosSecure.get(`/users/${user?.email}`);
-        console.log("Fetched user role:", userRes?.data.role);
-        setUserRole(userRes?.data.role);
+        console.log("Fetched user role:", userRes?.data?.role);
+        setUserRole(userRes?.data?.role);
       } catch (error) {
         console.error("Error fetching user role:", error);
       } finally {
@@ -32,10 +33,8 @@ const DashboardAside = () => {
       }
     };
 
-    if (user?.email) {
-      fetchUserRole();
-    }
-  }, [user, axiosSecure]);
+    fetchUserRole();
+  }, [user?.email, axiosSecure]);
 
   if (!user) return null;
 

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, Outlet } from "react-router";
 import { ClimbingBoxLoader } from "react-spinners";
 import { AuthContext } from "../Provider/AuthContext";
 
@@ -10,7 +10,7 @@ const Profile = () => {
     setLoading(false);
   }, 1500);
 
-  const { displayName, email, photoURL } = user;
+  const { displayName, email, photoURL } = user || {};
   console.log(user);
   return loading ? (
     <div className="h-[97vh] flex items-center justify-center">
@@ -25,12 +25,13 @@ const Profile = () => {
         <p className="font-bold text-3xl">Name: {displayName}</p>
         <p className="font-light text-xl">Email: {email}</p>
         <Link
-          to={`/profile/update`}
+          to={`update`}
           className="btn btn-primary bg-amber-600 border-none"
         >
           Update Profile
         </Link>
       </div>
+      <Outlet />
     </div>
   );
 };

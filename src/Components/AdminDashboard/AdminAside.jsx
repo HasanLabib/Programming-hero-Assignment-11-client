@@ -13,7 +13,7 @@ const AdminAside = ({ navItemClass }) => {
           <p className="mb-2 text-xs uppercase text-gray-400">Account</p>
           <ul className="space-y-1">
             <li>
-              <NavLink to="/profile" className={navItemClass}>
+              <NavLink to="profile" className={navItemClass}>
                 My Profile
               </NavLink>
             </li>

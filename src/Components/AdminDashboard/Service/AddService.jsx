@@ -60,6 +60,7 @@ const AddService = () => {
           placeholder="Enter service name"
           required
         />
+        
 
         <label className="label">Cost (BDT)</label>
         <input

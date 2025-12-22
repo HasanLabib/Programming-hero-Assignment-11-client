@@ -22,7 +22,7 @@ const useServiceHook = () => {
     };
     fetchService();
   }, [axiosS]);
-  return { service, error, loading };
+  return { service, error, loading, setLoading };
 };
 
 export default useServiceHook;

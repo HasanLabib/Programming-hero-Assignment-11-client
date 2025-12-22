@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Provider/AuthContext";
 import logo from "../../assets/logo.svg"; // Adjust path based on file location
 
-
 const NavBar = () => {
   const { user, signOutUser } = use(AuthContext);
   const [photo, setPhoto] = useState("");
@@ -28,7 +27,7 @@ const NavBar = () => {
 
   const menuItems = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/all-service" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -82,7 +81,7 @@ const NavBar = () => {
               </ul>
             </div>
             <NavLink to={`/`} className="btn btn-ghost text-xl">
-              <img src={logo} className="h-20 w-auto"/>
+              <img src={logo} className="h-20 w-auto" />
             </NavLink>
           </div>
           <div className="navbar-center hidden lg:flex">
