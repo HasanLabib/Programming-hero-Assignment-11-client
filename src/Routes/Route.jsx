@@ -15,6 +15,7 @@ import ServiceSection from "../Components/GivenServices/ServiceSection";
 import ServiceDetails from "../Components/GivenServices/ServiceDetails";
 import MyBookings from "../Components/MyBookings";
 import PaymentSuccess from "../Components/PaymentSuccess";
+import PaymentHistory from "../Components/PaymentHistory";
 
 export const route = () =>
   createBrowserRouter([
@@ -77,6 +78,10 @@ export const route = () =>
         {
           path: "services/edit/:id",
           element: <EditService />,
+        },
+        {
+          path: "payments/user/:email",
+          Component: PaymentHistory,
         },
       ],
     },
