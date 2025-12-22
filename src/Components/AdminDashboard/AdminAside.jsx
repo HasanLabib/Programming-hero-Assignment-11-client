@@ -43,19 +43,10 @@ const AdminAside = ({ navItemClass }) => {
         <div>
           <p className="mb-2 text-xs uppercase text-gray-400">Operations</p>
           <ul className="space-y-1">
+
             <li>
-              <NavLink to="assign-decorator" className={navItemClass}>
-                Assign Decorator
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="payments" className={navItemClass}>
-                Payment Status
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="decorator-approval" className={navItemClass}>
-                Approve / Disable Decorators
+              <NavLink to={`make-decorator`} className={navItemClass}>
+                Make Decorators
               </NavLink>
             </li>
           </ul>

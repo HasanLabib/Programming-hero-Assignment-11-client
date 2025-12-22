@@ -16,6 +16,14 @@ import ServiceDetails from "../Components/GivenServices/ServiceDetails";
 import MyBookings from "../Components/MyBookings";
 import PaymentSuccess from "../Components/PaymentSuccess";
 import PaymentHistory from "../Components/PaymentHistory";
+import ManageDecorators from "../Components/AdminDashboard/ManageDecorators";
+import { EphemeralKeys } from "../../node_modules/stripe/esm/resources/EphemeralKeys";
+import MakeDecorator from "../Components/AdminDashboard/MakeDecorator";
+import Revenue from "../Components/Revenue";
+import ManageBooking from "../Components/AdminDashboard/ManageBooking";
+import Analytics from "../Components/AdminDashboard/Analytics";
+import MyProject from "../Components/AdminDashboard/MyProject";
+import DecoratorProjectsStatus from "../Components/AdminDashboard/DecoratorProjectsStatus";
 
 export const route = () =>
   createBrowserRouter([
@@ -82,6 +90,29 @@ export const route = () =>
         {
           path: "payments/user/:email",
           Component: PaymentHistory,
+        },
+        {
+          path: "decorators",
+          element: <ManageDecorators />,
+        },
+        {
+          path: "make-decorator",
+          element: <MakeDecorator />,
+        },
+
+        { path: "revenue", element: <Revenue /> },
+        { path: "bookings", element: <ManageBooking /> },
+        {
+          path: "analytics",
+          element: <Analytics />,
+        },
+        {
+          path: "assigned-projects",
+          element: <MyProject />,
+        },
+        {
+          path: "update-project-status",
+          element: <DecoratorProjectsStatus />,
         },
       ],
     },

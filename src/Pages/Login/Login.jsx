@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthContext.jsx";
 import toast from "react-hot-toast";
 import { ClimbingBoxLoader } from "react-spinners";
+import axios from "axios";
 
 const Login = () => {
   const { signInWithGoogle, signInUser, setUser } = useContext(AuthContext);
@@ -54,6 +55,18 @@ const Login = () => {
           email: loggedUser.email,
           photoURL: loggedUser.photoURL,
         });
+        axios
+          .post("http://localhost:4000/googleUsers", {
+            name: loggedUser.displayName,
+            email: loggedUser.email,
+            photoURL: loggedUser.photoURL,
+          })
+          .then((response) => {
+            console.log("User data saved:", response.data);
+          })
+          .catch((error) => {
+            console.error("Error saving user data:", error);
+          });
         console.log("Google login success:", result.user);
         toast.success("Google Sign-in successful!");
         navigate("/");
@@ -74,15 +87,6 @@ const Login = () => {
   ) : (
     <>
       <div className="w-11/12 mx-auto flex md:flex-row flex-col-reverse justify-evenly items-center gap-4">
-        <section className="flex-1 text-center max-w-[100vh] h-screen py-5 place-content-center-safe place-items-center-safe space-y-6">
-          <h1 className="text-3xl md:text-6xl font-black text-[rgb(26, 30, 33)]">
-            Welcome Back
-          </h1>
-          <p className="text-[0.9rem] text-[rgb(50, 52, 55)]">
-            Login to enjoy exclusive features.
-          </p>
-          <img src="../login_img.jpg" className="w-[70%] rounded-full" />
-        </section>
         <section className="flex-1 py-5 place-items-center-safe">
           <div className="card w-full max-w-sm shrink-0 shadow-2xl bg-[#fff6c851]">
             <div className="card-body ">

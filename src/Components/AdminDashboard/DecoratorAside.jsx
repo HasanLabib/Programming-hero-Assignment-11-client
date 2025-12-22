@@ -27,11 +27,6 @@ const DecoratorAside = ({ navItemClass }) => {
                 My Assigned Projects
               </NavLink>
             </li>
-            <li>
-              <NavLink to="today-schedule" className={navItemClass}>
-                Today's Schedule
-              </NavLink>
-            </li>
           </ul>
         </div>
 
@@ -51,11 +46,6 @@ const DecoratorAside = ({ navItemClass }) => {
         <div>
           <p className="mb-2 text-xs uppercase text-gray-400">Finance</p>
           <ul className="space-y-1">
-            <li>
-              <NavLink to="payment-history" className={navItemClass}>
-                Payment History
-              </NavLink>
-            </li>
             <li>
               <NavLink to="earnings-summary" className={navItemClass}>
                 Earnings Summary
