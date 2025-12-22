@@ -42,6 +42,7 @@ const SignUp = () => {
         },
       }
     );
+    
     const photoUrl = res.data.data.display_url;
     console.log(photoUrl);
 

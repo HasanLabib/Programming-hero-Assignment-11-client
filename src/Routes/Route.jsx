@@ -7,6 +7,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Service from "../Components/AdminDashboard/Service/Service";
 import AddService from "../Components/AdminDashboard/Service/AddService";
 import EditService from "../Components/AdminDashboard/Service/EditService";
+import Login from "../Pages/Login/Login";
 
 export const route = () =>
   createBrowserRouter([
@@ -22,6 +23,10 @@ export const route = () =>
           path: "/signup",
           Component: SignUp,
         },
+        {
+          path: "/login",
+          Component: Login,
+        }
       ],
     },
     {
