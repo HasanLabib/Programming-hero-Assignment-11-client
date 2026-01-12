@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { use, useContext, useEffect } from "react";
 import axios from "axios";
-import { useSearchParams } from "react-router";
+import { Navigate, useSearchParams } from "react-router";
+import { AuthContext } from "../Provider/AuthContext";
 
 const PaymentSuccess = () => {
   const [params] = useSearchParams();
+  const {user} = useContext(AuthContext);
   const sessionId = params.get("session_id");
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const PaymentSuccess = () => {
     };
 
     confirmPayment();
+    Navigate("/dashboard/bookings/user/" + user.email);
   }, [sessionId]);
 
   return (

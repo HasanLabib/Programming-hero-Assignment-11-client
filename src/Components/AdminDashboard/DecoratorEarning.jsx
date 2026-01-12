@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthContext";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
-
 const DecoratorEarning = () => {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
@@ -20,27 +19,15 @@ const DecoratorEarning = () => {
   }, [user?.email]);
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 mb-6">
-      <div className="card bg-base-100 shadow">
-        <div className="card-body">
-          <h2 className="text-lg font-semibold">
-            Total Earnings
-          </h2>
-          <p className="text-3xl font-bold text-green-600">
-            ${summary.totalEarnings}
-          </p>
-        </div>
+    <div className="stats shadow">
+      <div className="stat">
+        <div className="stat-title">Total Earnings</div>
+        <div className="stat-value text-success">৳{summary.totalEarnings}</div>
       </div>
 
-      <div className="card bg-base-100 shadow">
-        <div className="card-body">
-          <h2 className="text-lg font-semibold">
-            Completed Projects
-          </h2>
-          <p className="text-3xl font-bold">
-            {summary.totalProjects}
-          </p>
-        </div>
+      <div className="stat">
+        <div className="stat-title">Completed Projects</div>
+        <div className="stat-value">{summary.totalProjects}</div>
       </div>
     </div>
   );

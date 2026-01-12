@@ -56,11 +56,14 @@ const Login = () => {
           photoURL: loggedUser.photoURL,
         });
         axios
-          .post("https://programming-hero-assignment-11-serv.vercel.app/googleUsers", {
-            name: loggedUser.displayName,
-            email: loggedUser.email,
-            photoURL: loggedUser.photoURL,
-          })
+          .post(
+            "https://programming-hero-assignment-11-serv.vercel.app/googleUsers",
+            {
+              name: loggedUser.displayName,
+              email: loggedUser.email,
+              photoURL: loggedUser.photoURL,
+            }
+          )
           .then((response) => {
             console.log("User data saved:", response.data);
           })
@@ -88,40 +91,46 @@ const Login = () => {
     <>
       <div className="w-11/12 mx-auto flex md:flex-row flex-col-reverse justify-evenly items-center gap-4">
         <section className="flex-1 py-5 place-items-center-safe">
-          <div className="card w-full max-w-sm shrink-0 shadow-2xl bg-[#fff6c851]">
+          <div className="card w-full max-w-xl shrink-0 shadow-2xl bg-[#ffffff51]">
             <div className="card-body ">
               <p className="font-bold text-2xl mb-4">Login</p>
               <form
                 onSubmit={handleLogin}
                 ref={form}
-                className="space-y-4 bg-[#fff6c8] "
+                className="space-y-4 bg-[#ffffff] "
               >
                 <fieldset className="fieldset  rounded-box w-full border p-7">
-                  <label className="label">Email</label>
-                  <input
-                    type="email"
-                    className="input rounded-2xl p-6"
-                    name="email"
-                    value={userEmail}
-                    onChange={handleChange}
-                    placeholder="Email"
-                  />
+                  <section className="flex justify-between items-center-safe gap-4">
+                    <div class="input-floating-label">
+                      <label className="label">Email</label>
+                      <input
+                        type="email"
+                        className="input rounded-2xl p-6"
+                        name="email"
+                        value={userEmail}
+                        onChange={handleChange}
+                        placeholder="Email"
+                      />
+                    </div>
 
-                  <div className="relative">
-                    <label className="label">Password</label>
-                    <input
-                      type={show ? "text" : "password"}
-                      className="input rounded-2xl p-6"
-                      placeholder={show ? "Password" : "******"}
-                      name="password"
-                    />
-                    <span
-                      onClick={() => setShow(!show)}
-                      className="absolute right-[18px] top-[32px] text-2xl cursor-pointer z-50"
-                    >
-                      {show ? <FaEye /> : <IoEyeOff />}
-                    </span>
-                  </div>
+                    <div className="relative">
+                      <div class="input-floating-label">
+                        <label className="label">Password</label>
+                        <input
+                          type={show ? "text" : "password"}
+                          className="input rounded-2xl p-6 "
+                          placeholder={show ? "Password" : "******"}
+                          name="password"
+                        />
+                      </div>
+                      <span
+                        onClick={() => setShow(!show)}
+                        className="absolute right-[18px] top-[32px] text-2xl cursor-pointer z-50"
+                      >
+                        {show ? <FaEye /> : <IoEyeOff />}
+                      </span>
+                    </div>
+                  </section>
                   <div>
                     <Link
                       to={"/forgetpassword"}

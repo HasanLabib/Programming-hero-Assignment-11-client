@@ -19,21 +19,46 @@ const Bookings = ({ booking, setIsCancel, isCancel }) => {
   return (
     <tr>
       <td>{booking.serviceName}</td>
-      <td>{booking.status}</td>
-      <td>{booking.paymentStatus}</td>
+
       <td>
-        {booking.paymentStatus != "paid" ? (
+        <span
+          className={`badge ${
+            booking.status === "completed" ? "badge-success" : "badge-warning"
+          }`}
+        >
+          {booking.status}
+        </span>
+      </td>
+
+      <td>
+        <span
+          className={`badge ${
+            booking.paymentStatus === "paid" ? "badge-success" : "badge-error"
+          }`}
+        >
+          {booking.paymentStatus}
+        </span>
+      </td>
+
+      <td className="space-x-2">
+        {booking.paymentStatus !== "paid" && (
           <>
-            <button onClick={handlePayment} className="btn btn-success btn-xs">
+            <button onClick={handlePayment} className="btn btn-xs btn-success">
               Pay Now
             </button>
-            <button onClick={handleCancel} className="btn btn-error btn-xs ml-3">
-              Cancel Now
+
+            <button onClick={handleCancel} className="btn btn-xs btn-error">
+              Cancel
             </button>
           </>
-        ) : (
-          <span className="btn btn-ghost">Paid</span>
         )}
+
+        <Link
+          to={`/dashboard/bookings/edit/${booking._id}`}
+          className="btn btn-xs"
+        >
+          Edit
+        </Link>
       </td>
     </tr>
   );
